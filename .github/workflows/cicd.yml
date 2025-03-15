@@ -38,6 +38,13 @@ jobs:
             echo "Invalid upstream"
             exit 1
           fi
+      - name: Use SSH action
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ubuntu
+          private-key: ${{ secrets.MALL_SSH_KEY }}
+          debug: true  # 디버깅 출력 활성화
 
       - name: Deploy new version to ${{ env.TARGET_UPSTREAM }}
         uses: appleboy/ssh-action@master
