@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [mall_product, mall_cart, mall_order]
+        service: [mall_product]
     steps:
       - name: Set target deployment environment
         run: |
