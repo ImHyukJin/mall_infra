@@ -43,7 +43,7 @@ jobs:
         with:
           host: 52.78.112.137
           username: ubuntu
-          private-key: ${{ secrets.EC2_SSH_KEY}}
+          key: ${{ secrets.EC2_SSH_KEY}}
           debug: true  # 디버깅 출력 활성화
 
       - name: Deploy new version to ${{ env.TARGET_UPSTREAM }}
