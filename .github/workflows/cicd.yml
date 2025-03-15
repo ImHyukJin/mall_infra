@@ -18,9 +18,9 @@ jobs:
     steps:
       - name: Set target deployment environment
         run: |
-          STATUS=$(curl -o /dev/null -w "%{http_code}" "http://${{ secrets[format('{0}_SERVER_IP', matrix.service)] }}/env")
+          STATUS=$(curl -o /dev/null -w "%{http_code}" "http://${{ secrets[format('{0}_SERVER_IP', matrix.service)] }}/product/env")
           if [ "$STATUS" == "200" ]; then
-            CURRENT_UPSTREAM=$(curl -s "http://${{ secrets[format('{0}_SERVER_IP', matrix.service)] }}/env")
+            CURRENT_UPSTREAM=$(curl -s "http://${{ secrets[format('{0}_SERVER_IP', matrix.service)] }}/product/env")
           else
             CURRENT_UPSTREAM="green"
           fi
