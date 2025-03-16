@@ -4,7 +4,10 @@ on:
   push:
     branches: [ "main" ]
   repository_dispatch:
-    types: [ trigger-cicd ]
+      types: 
+      - trigger-cicd-mall_product
+      - trigger-cicd-mall_cart
+      - trigger-cicd-mall_order
 
 permissions:
   contents: read
