@@ -22,8 +22,8 @@ jobs:
             endpoint: product
           - service: mall_order
             endpoint: order
-          - service: mall_cart
-            endpoint: cart
+          #- service: mall_cart
+          #  endpoint: cart
     steps:
       - name: Set target deployment environment
         run: |
