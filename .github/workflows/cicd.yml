@@ -18,11 +18,11 @@ jobs:
     strategy:
       matrix:
         include:
-          - service: MALL_PRODUCT
+          - service: mall_product
             endpoint: product
-          - service: MALL_ORDER
+          - service: mall_order
             endpoint: order
-          - service: MALL_CART
+          - service: mall_cart
             endpoint: cart
     steps:
       - name: Set target deployment environment
