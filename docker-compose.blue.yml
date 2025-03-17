@@ -30,3 +30,17 @@ services:
     environment:
       - PROFILES=blue
       - ENV=blue
+  nginx:
+    image: nginx:latest
+    container_name: nginxserver
+    ports:
+      - "80:80"
+    volumes:
+      - .nginx/nginx.conf:/etc/nginx/nginx.conf
+      - .nginx/service-env.inc:/etc/nginx/conf.d/service-env.inc
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge    
