@@ -1,11 +1,32 @@
 version: '3.8'
 
 services:
-  green:
+  # mall_product green
+  mall_product_green:
     image: imhyukjin/mall_product_server:latest
-    container_name: green
+    container_name: mall_product_server
     ports:
       - "8081:8081"
+    environment:
+      - PROFILES=green
+      - ENV=green
+
+  # mall_cart green
+  mall_cart_green:
+    image: imhyukjin/mall_cart_server:latest
+    container_name: mall_cart_server
+    ports:
+      - "8083:8081"
+    environment:
+      - PROFILES=green
+      - ENV=green
+
+  # mall_order green
+  mall_order_green:
+    image: imhyukjin/mall_order_server:latest
+    container_name: mall_order_server
+    ports:
+      - "8085:8081"
     environment:
       - PROFILES=green
       - ENV=green

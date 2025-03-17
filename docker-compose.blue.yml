@@ -1,11 +1,32 @@
 version: '3.8'
 
 services:
-  blue:
+  # mall_product blue
+  mall_product_blue:
     image: imhyukjin/mall_product_server:latest
-    container_name: blue
+    container_name: mall_product_server
     ports:
       - "8080:8080"
+    environment:
+      - PROFILES=blue
+      - ENV=blue
+
+  # mall_cart blue
+  mall_cart_blue:
+    image: imhyukjin/mall_cart_server:latest
+    container_name: mall_cart_server
+    ports:
+      - "8082:8080"
+    environment:
+      - PROFILES=blue
+      - ENV=blue
+
+  # mall_order blue
+  mall_order_blue:
+    image: imhyukjin/mall_order_server:latest
+    container_name: mall_order_server
+    ports:
+      - "8084:8080"
     environment:
       - PROFILES=blue
       - ENV=blue
