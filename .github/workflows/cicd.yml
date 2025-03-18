@@ -25,6 +25,21 @@ jobs:
           #- service: mall_cart
           #  endpoint: cart
     steps:
+      - name: Start Nginx if not running
+        uses: appleboy/ssh-action@master
+        with:
+          username: ubuntu
+          host: ${{ secrets[format('{0}_SERVER_IP', matrix.service)] }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            # Check if nginxserver container is running
+            if ! sudo docker ps -q -f name=nginxserver; then
+              echo "Nginx is not running. Starting Nginx..."
+              sudo docker-compose -f /home/ubuntu/mall_infra/nginx/docker-compose.yml up -d nginxserver
+            else
+              echo "Nginx is already running."
+            fi
+
       - name: Set target deployment environment
         run: |
           STATUS=$(curl -o /dev/null -w "%{http_code}" "http://${{ secrets[format('{0}_SERVER_IP', matrix.service)] }}/${{matrix.endpoint}}/env")
