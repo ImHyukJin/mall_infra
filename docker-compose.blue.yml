@@ -1,46 +1,40 @@
 version: '3.8'
 
 services:
-  # mall_product blue
   mall_product_blue:
     image: imhyukjin/mall_product_server:latest
-    container_name: mall_product_server
+    container_name: mall_product_server_blue
     ports:
       - "8080:8080"
+    networks:
+      - mynetwork    
     environment:
       - PROFILES=blue
       - ENV=blue
 
-  # mall_cart blue
   mall_cart_blue:
     image: imhyukjin/mall_cart_server:latest
-    container_name: mall_cart_server
+    container_name: mall_cart_server_blue
     ports:
       - "8082:8080"
+    networks:
+      - mynetwork
     environment:
       - PROFILES=blue
       - ENV=blue
 
-  # mall_order blue
   mall_order_blue:
     image: imhyukjin/mall_order_server:latest
-    container_name: mall_order_server
+    container_name: mall_order_server_blue
     ports:
       - "8084:8080"
+    networks:
+      - mynetwork
     environment:
       - PROFILES=blue
       - ENV=blue
-  nginx:
-    image: nginx:latest
-    container_name: nginxserver
-    ports:
-      - "80:80"
-    volumes:
-      - .nginx/nginx.conf:/etc/nginx/nginx.conf
-      - .nginx/service-env.inc:/etc/nginx/conf.d/service-env.inc
-    networks:
-      - mynetwork
 
 networks:
   mynetwork:
-    driver: bridge    
+    driver: bridge
+

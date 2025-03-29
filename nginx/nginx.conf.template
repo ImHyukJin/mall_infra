@@ -20,7 +20,7 @@ http {
 
     log_format main '$remote_addr - $remote_user [$time_local] "$request" '
                     '$status $body_bytes_sent "$http_referer" '
-                    '"$http_user_agent" "$http_x_forwarded_for" blue';
+                    '"$http_user_agent" "$http_x_forwarded_for" ${ACTIVE_ENV}';
 
     access_log /var/log/nginx/access.log main;
 
@@ -30,17 +30,17 @@ http {
 
   
     # 포트 설정을 위한 map
-    map blue $product_port {
+    map $ACTIVE_ENV $product_port {
     default 8080;
     green   8081;
     }
 
-    map blue $cart_port {
+    map $ACTIVE_ENV $cart_port {
     default 8082;
     green   8083;
     }
 
-    map blue $order_port {
+    map $ACTIVE_ENV $order_port {
     default 8084;
     green   8085;
     }
@@ -50,7 +50,7 @@ http {
 	
         # product
         location /product/ {
-            set $upstream "mall_product_blue:${product_port}";
+            set $upstream "mall_product_${ACTIVE_ENV}:${product_port}";
             proxy_pass http://$upstream;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
@@ -60,7 +60,7 @@ http {
 
         # cart
         location /cart/ {
-            set $upstream "mall_cart_blue:${cart_port}";
+            set $upstream "mall_cart_${ACTIVE_ENV}:${cart_port}";
             proxy_pass http://$upstream;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
@@ -70,7 +70,7 @@ http {
 
         # order
         location /order/ {
-            set $upstream "mall_order_blue:${order_port}";
+            set $upstream "mall_order_${ACTIVE_ENV}:${order_port}";
             proxy_pass http://$upstream;
 
 	    access_log /var/log/nginx/order_access.log combined;
@@ -84,7 +84,7 @@ http {
         # 현재 실행 중인 환경 확인
         location /env {
             default_type text/plain;
-            return 200 "blue";
+            return 200 "${ACTIVE_ENV}";
         }
 	
 	location /port {
