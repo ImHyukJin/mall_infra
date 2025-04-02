@@ -8,6 +8,7 @@ on:
       - trigger-cicd-mall_product
       - trigger-cicd-mall_cart
       - trigger-cicd-mall_order
+      - trigger-cicd-FrontEnd
 
 permissions:
   contents: read
