@@ -1,4 +1,4 @@
-name: CICD
+name: mall_infraCICD
 
 on:
   push: 
@@ -9,6 +9,7 @@ on:
       - trigger-cicd-mall_cart
       - trigger-cicd-mall_order
       - trigger-cicd-FrontEnd
+      - trigger-cicd-mall_user
 
 permissions:
   contents: read
