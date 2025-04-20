@@ -36,7 +36,7 @@ CI/CD 자동화, Redis 캐싱, 무중단 배포, 로깅 및 장애 추적까지 
 
 | 분류        | 기술 |
 |-------------|------|
-| Backend     | Java 17, Spring Boot, Spring Data JPA |
+| Backend     | Java 11, Spring Boot, Spring Data JPA, MyBatis |
 | Infra/DevOps| Docker, Docker Compose, Nginx, GitHub Actions, Redis |
 | 인증/보안   | JWT, Nginx + Lua, Spring Security |
 | DB          | MySQL, Redis |
