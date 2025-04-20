@@ -3,9 +3,6 @@
 > 마이크로서비스 아키텍처(MSA) 기반의 전자상거래 백엔드 시스템  
 > 실무 수준의 인증, 배포, 성능 개선, 장애 대응까지 고려한 인프라 중심 프로젝트
 
----
-## 레파지토리 링크 
-- [MALL_PRODUCT](https://github.com/ImHyukJin/mall-product-service) // [MALL_ORDER](https://github.com/ImHyukJin/mall-order-service) //  [MALL_CART](https://github.com/ImHyukJin/mall-cart-service) //  [MALL_ADMIN]()  //   [MALL_USER]()
 
 ---
 ##  목차
