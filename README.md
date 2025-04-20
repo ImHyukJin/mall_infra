@@ -11,11 +11,10 @@
 - [기술 스택](#기술-스택)
 - [시스템 아키텍처](#시스템-아키텍처)
 - [서비스 구성](#서비스-구성)
+- [ERD 구조](#ERD (Entity-Relationship Diagram))
 - [주요 기능 및 기여](#주요-기능-및-기여)
 - [설치 및 실행 방법](#설치-및-실행-방법)
-- [트러블슈팅](#트러블슈팅)
-- [성과 및 성장 포인트](#성과-및-성장-포인트)
-- [블로그 정리](#블로그-정리)
+
 
 ---
 
@@ -53,20 +52,64 @@ CI/CD 자동화, Redis 캐싱, 무중단 배포, 로깅 및 장애 추적까지 
 - **Docker Compose**로 개발 환경 구축, **GitHub Actions**로 배포 자동화
 - **Blue-Green 배포 전략**으로 무중단 배포 지원
 - **Trace-ID 기반 로깅**으로 장애 추적 가능
+  
+<img src="https://github.com/user-attachments/assets/dc8ad580-2307-4a42-b9fd-4829b5464ca7" width="500" height= "350">
+---
+
+## 📦 서비스 구성 및 레포지토리 구조
+
+###  mall_product
+- **기능**
+  - 상품 CRUD (등록, 수정, 삭제)
+  - 상품 검색 및 상세 조회
+  - 이미지 URL 등록 및 관리
+
+
+
+###  mall_order
+- **기능**
+  - 주문 생성 / 조회 / 취소
+  - 주문 시 재고 차감 처리
+  - 외부 결제 API 연동 (결제 요청 처리)
+
+
+
+###  mall_cart
+- **기능**
+  - 장바구니 담기 / 수정 / 삭제
+  - 사용자별 장바구니 개별 관리
+
+
+
+###  mall_user
+- **기능**
+  - 회원가입 및 로그인
+  - JWT 기반 인증 및 검증
+  - OAuth2 로그인, SMS 인증 기능 제공
+
+
+
+###  mall_admin
+- **기능**
+  - 관리자용 상품 관리 기능
+  - 사용자 관리 및 통계 데이터 제공
+
+
+
+###  mall_infra
+- **기능**
+  - **Nginx 설정**: Reverse Proxy, JWT 인증(Lua Script 사용)
+  - **Docker Compose**: 전체 MSA 서비스 오케스트레이션
+  - **Redis, AWS RDS 연결 설정**
+  - **CI/CD 자동화**:
+    - GitHub Actions 기반 워크플로우 구성
+    - Blue-Green 배포 전략 적용
+  - 기타 공통 설정 파일 및 보안 설정 관리
 
 ---
 
-## 📦 서비스 구성
-
-```bash
-mall-infra/
- ┣ mall-product/      # 상품 등록/조회/수정/삭제
- ┣ mall-order/        # 주문 생성/취소/이력
- ┣ mall-cart/         # 장바구니 담기/조회/삭제 (Redis 캐시 연동)
- ┣ mall-auth/         # JWT 발급 및 사용자 인증
- ┣ mall-admin/        # 관리자 기능 (상품/주문/회원 관리)
- ┣ nginx-docker/      # Nginx + Lua 인증 처리
-
+## 🗂 ERD (Entity-Relationship Diagram)
+<img src="https://github.com/user-attachments/assets/0e2844f6-25ff-4eb8-9972-14bb1126f9e4" width="500" height= "350">
 
 ## ✨ 주요 기능 및 기여
 
