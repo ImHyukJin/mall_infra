@@ -4,16 +4,18 @@
 > 실무 수준의 인증, 배포, 성능 개선, 장애 대응까지 고려한 인프라 중심 프로젝트
 
 ---
+## 레파지토리 링크 
+- [MALL_PRODUCT](https://github.com/ImHyukJin/mall-product-service) // [MALL_ORDER](https://github.com/ImHyukJin/mall-order-service) //  [MALL_CART](https://github.com/ImHyukJin/mall-cart-service) //  [MALL_ADMIN]()  //   [MALL_USER]()
 
+---
 ##  목차
 
 - [프로젝트 소개](#프로젝트-소개)
 - [기술 스택](#기술-스택)
 - [시스템 아키텍처](#시스템-아키텍처)
 - [서비스 구성](#서비스-구성)
-- [ERD 구조](#ERD (Entity-Relationship Diagram))
+- [ERD (Entity-Relationship Diagram)](#erd-entity-relationship-diagram)
 - [주요 기능 및 기여](#주요-기능-및-기여)
-- [설치 및 실행 방법](#설치-및-실행-방법)
 
 
 ---
@@ -30,7 +32,7 @@ CI/CD 자동화, Redis 캐싱, 무중단 배포, 로깅 및 장애 추적까지 
 
 ---
 
-## 🛠 기술 스택
+## 기술 스택
 
 | 분류        | 기술 |
 |-------------|------|
@@ -56,7 +58,7 @@ CI/CD 자동화, Redis 캐싱, 무중단 배포, 로깅 및 장애 추적까지 
 <img src="https://github.com/user-attachments/assets/dc8ad580-2307-4a42-b9fd-4829b5464ca7" width="500" height= "350">
 ---
 
-##  서비스 구성 및 레포지토리 구조
+##  서비스 구성
 
 ###  mall_product
 - **기능**
@@ -108,7 +110,7 @@ CI/CD 자동화, Redis 캐싱, 무중단 배포, 로깅 및 장애 추적까지 
 
 ---
 
-## 🗂 ERD (Entity-Relationship Diagram)
+## ERD (Entity-Relationship Diagram)
 <img src="https://github.com/user-attachments/assets/0e2844f6-25ff-4eb8-9972-14bb1126f9e4" width="500" height= "350">
 
 ##  주요 기능 및 기여
